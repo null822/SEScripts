@@ -1,4 +1,4 @@
-﻿namespace SEScripts;
+﻿namespace SEScripts.scripts;
 
 public class Math1 : IScript
 {
