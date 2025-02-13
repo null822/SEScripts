@@ -4,10 +4,12 @@ public static class Program
 {
     public static void Main()
     {
-        var n1 = double.Parse(Console.ReadLine() ?? "");
-        var n2 = double.Parse(Console.ReadLine() ?? "");
-        var n3 = double.Parse(Console.ReadLine() ?? "");
+        ScriptRegistry.Register("math1", new Math1());
         
-        Console.WriteLine(n1 + n2 - n3);
+        Console.Write("Script to run: ");
+        var scriptName = Console.ReadLine() ?? "";
+        var success = ScriptRegistry.TryRunScript(scriptName);
+        if (!success) Console.WriteLine($"Script {scriptName} was not found");
+
     }
 }
