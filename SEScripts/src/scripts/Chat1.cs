@@ -5,7 +5,7 @@ public class Chat1 : IScript
     public void Run()
     {
         var word = Console.ReadLine();
-        if (word is null || word.Contains(' '))
+        if (word is "" or null || word.Contains(' '))
         {
             Console.WriteLine("Invalid word supplied");
             return;

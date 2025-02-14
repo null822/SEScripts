@@ -8,10 +8,10 @@ public static class ScriptRegistry
     {
         Scripts.Add(name, script);
     }
-
+    
     public static IScript GetScript(string name) => Scripts[name];
     public static bool TryGetScript(string name, out IScript? script) => Scripts.TryGetValue(name, out script);
-
+    
     public static void RunScript(string name) => Scripts[name].Run();
     public static bool TryRunScript(string name)
     {
@@ -20,4 +20,6 @@ public static class ScriptRegistry
         script.Run();
         return true;
     }
+
+    public static string[] GetNames() => Scripts.Keys.ToArray();
 }
