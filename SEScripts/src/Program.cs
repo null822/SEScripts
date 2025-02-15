@@ -13,10 +13,17 @@ public static class Program
         
         var scriptName = RunSelectorUi();
         
-        Console.WriteLine(scriptName);
         var success = ScriptRegistry.TryRunScript(scriptName);
         if (!success)
             Console.WriteLine($"Script {scriptName} was not found");
+    }
+    
+    private static void RegisterScripts()
+    {
+        ScriptRegistry.Register("math1", new Math1());
+        ScriptRegistry.Register("chat1", new Chat1());
+        ScriptRegistry.Register("marks", new Marks());
+        
     }
 
     private static string RunSelectorUi()
@@ -106,12 +113,5 @@ public static class Program
         Console.Clear();
         
         return scripts[selectorIndex];
-    }
-    
-    private static void RegisterScripts()
-    {
-        ScriptRegistry.Register("math1", new Math1());
-        ScriptRegistry.Register("chat1", new Chat1());
-        
     }
 }
